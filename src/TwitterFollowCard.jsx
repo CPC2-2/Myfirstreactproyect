@@ -7,12 +7,13 @@ export function TwitterCard ({formatUserName,userName,name}) {
     const imageSrc = `https://unavatar.io/${userName}`;
 
     //conditional text
-    const text = isFollowing ? 'Siguiendo' : 'Seguir'
+    const text = isFollowing ? 'Siguiendo' : 'Seguir ';
+    
     const buttonClassName = isFollowing ? 'gt-twitter-button-following  is-following' : 'gt-twitter-button-follow';
 
     const handleClick = () => {
         setIsFollowing(!isFollowing);
-        
+
     }
 
     return (
@@ -27,7 +28,8 @@ export function TwitterCard ({formatUserName,userName,name}) {
         
         <aside className='gt-twitter-aside' onClick={handleClick}>
             <button className={buttonClassName}>
-                {text}
+                <span className="gt-followCard-text">{text}</span>
+                <span className="gt-twitter-button-stopfollow">Dejar de Seguir</span>
             </button>
         </aside>
     </article>
