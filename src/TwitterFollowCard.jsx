@@ -1,6 +1,19 @@
-export function TwitterCard ({userName,name, isFollowing}) {
+import { useState } from "react";
+
+export function TwitterCard ({formatUserName,userName,name}) {
+
+    const [isFollowing,setIsFollowing] = useState(false);
 
     const imageSrc = `https://unavatar.io/${userName}`;
+
+    //conditional text
+    const text = isFollowing ? 'Siguiendo' : 'Seguir'
+    const buttonClassName = isFollowing ? 'gt-twitter-button-following  is-following' : 'gt-twitter-button-follow';
+
+    const handleClick = () => {
+        setIsFollowing(!isFollowing);
+        
+    }
 
     return (
     <article className='gt-twitter-card'>
@@ -8,13 +21,13 @@ export function TwitterCard ({userName,name, isFollowing}) {
             <img className='gt-img-card' src={imageSrc} alt="El avatar de github" />
             <div className='gt-twitter-info'>
                 <h1>{name}</h1>
-                <span className='gt-twitter-labbel'>@{userName}</span>
+                <span className='gt-twitter-labbel'>{formatUserName(userName)}</span>
             </div>
         </header>
         
-        <aside className='gt-twitter-aside'>
-            <button className='gt-twitter-button'>
-                Seguir
+        <aside className='gt-twitter-aside' onClick={handleClick}>
+            <button className={buttonClassName}>
+                {text}
             </button>
         </aside>
     </article>

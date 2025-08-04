@@ -20,6 +20,7 @@
     border-radius: 100px;
     font-size: 14px;
     font-weight: bolder;
+    transition: all 200ms ease-in-out;
 }
 
 .gt-twitter-info{
@@ -33,3 +34,36 @@
     width: 50px;
     height: 50px;
 }
+
+.gt-twitter-button-follow{
+    padding: 8px 20px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.gt-twitter-button-follow:hover{
+    background-color: #1DA1F2;
+    color: white;
+    transition: .3s ease background-color;
+}
+
+
+.gt-twitter-button-following.is-following {
+    cursor: pointer;
+    transition: .3s ease background-color;
+     padding: 8px 20px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.gt-twitter-button-following.is-following:hover{
+    background-color: rgb(242, 78, 78);
+    color: white;
+} 
